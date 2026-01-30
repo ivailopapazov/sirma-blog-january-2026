@@ -1,0 +1,28 @@
+{
+  "name": "sirma-blog-january-2026",
+  "version": "1.0.0",
+  "description": "Sirma Academy Course Project - JS DB &amp; REST",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivailopapazov/sirma-blog-january-2026.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/ivailopapazov/sirma-blog-january-2026/issues"
+  },
+  "homepage": "https://github.com/ivailopapazov/sirma-blog-january-2026#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.2.1",
+    "express-handlebars": "^8.0.3"
+  }
+}
