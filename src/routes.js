@@ -1,6 +1,7 @@
 
 import express from 'express';
 import authController from './controllers/authController.js';
+import postController from './controllers/postController.js';
 
 const routes = express.Router();
 
@@ -11,6 +12,7 @@ routes.get('/', (req, res) => {
 });
 
 routes.use('/', authController);
+routes.use('/posts', postController);
 
 // 404 handler
 routes.use((req, res) => {

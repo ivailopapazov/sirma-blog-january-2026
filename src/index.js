@@ -3,6 +3,7 @@ import { engine } from 'express-handlebars';
 import cookieParser from 'cookie-parser';
 
 import routes from './routes.js';
+import { authMiddleware } from './middlewares/authMiddleware.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -26,6 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static('src/public'));
+app.use(authMiddleware);
 
 // Routes
 app.use(routes);
