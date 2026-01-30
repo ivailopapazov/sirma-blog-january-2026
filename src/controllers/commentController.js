@@ -8,7 +8,8 @@ const commentController = express.Router();
 // POST /comments - Create comment
 commentController.post('/', requireAuth, async (req, res) => {
   const { content, postId } = req.body;
-  
+  console.log('Creating comment for postId:', postId, 'by userId:', req.user.id);
+
   try {
     await commentService.createComment(content, parseInt(postId), req.user.id);
     res.redirect(`/posts/${postId}`);
@@ -27,9 +28,9 @@ commentController.get('/:id/edit', requireAuth, async (req, res) => {
     if (comment.authorId !== req.user.id) {
       return res.status(403).render('error', { message: 'Unauthorized' });
     }
-    res.render('comments/edit', { 
+    res.render('comments/edit', {
       title: 'Edit Comment',
-      comment 
+      comment
     });
   } catch (error) {
     res.render('error', { message: error.message });
@@ -40,7 +41,7 @@ commentController.get('/:id/edit', requireAuth, async (req, res) => {
 commentController.post('/:id', requireAuth, async (req, res) => {
   const { content, postId } = req.body;
   const id = parseInt(req.params.id);
-  
+
   try {
     await commentService.updateComment(id, content, req.user.id);
     res.redirect(`/posts/${postId}`);
@@ -57,7 +58,7 @@ commentController.post('/:id', requireAuth, async (req, res) => {
 // POST /comments/:id/delete - Delete comment
 commentController.post('/:id/delete', requireAuth, async (req, res) => {
   const { postId } = req.body;
-  
+
   try {
     await commentService.deleteComment(parseInt(req.params.id), req.user.id);
     res.redirect(`/posts/${postId}`);

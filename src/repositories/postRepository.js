@@ -18,13 +18,34 @@ export default {
     },
     findById(id) {
         return prisma.post.findUnique({
-            where: { id }
+            where: { id },
+            include: {
+                comments: true,
+            }
         });
     },
     findAll() {
-        return prisma.post.findMany();
+        return prisma.post.findMany({
+            include: {
+                author: true,
+                comments: true,
+            }
+        });
     },
-    findByAuthorId(authorId) {},
-    update(id, updateData) { },
-    delete(id) { },
+    findByAuthorId(authorId) {
+        return prisma.post.findMany({
+            where: { authorId }
+        });
+    },
+    update(id, updateData) {
+        return prisma.post.update({
+            where: { id },
+            data: updateData
+        });
+    },
+    delete(id) {
+        return prisma.post.delete({
+            where: { id }
+        });
+    },
 }

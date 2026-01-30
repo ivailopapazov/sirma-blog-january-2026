@@ -21,6 +21,15 @@ export default {
             where: { id }
         });
     },
-    update(id, updateData) {},
-    delete(id) {}   
+    update(id, updateData) {
+        return prisma.user.update({
+            where: { id },
+            data: updateData
+        });
+    },
+    delete(id) {
+        return prisma.user.delete({
+            where: { id }
+        });
+    }
 };
