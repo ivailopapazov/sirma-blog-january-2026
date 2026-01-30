@@ -1,0 +1,26 @@
+<h1>All Posts</h1>
+
+{{#if user}}
+  <p style="margin-bottom: 20px;">
+    <a href="/posts/new" class="btn">Create New Post</a>
+  </p>
+{{/if}}
+
+{{#if posts.length}}
+  {{#each posts}}
+    <div class="card">
+      <h2><a href="/posts/{{this.id}}" style="color: #2c3e50; text-decoration: none;">{{this.title}}</a></h2>
+      <p class="meta">
+        By <strong>{{this.author.username}}</strong> | {{formatDate this.createdAt}} | {{this.comments.length}} comments
+      </p>
+      <p>{{this.content}}</p>
+      <div class="actions">
+        <a href="/posts/{{this.id}}" class="btn btn-secondary">Read More</a>
+      </div>
+    </div>
+  {{/each}}
+{{else}}
+  <div class="card">
+    <p>No posts yet. {{#if user}}<a href="/posts/new">Create the first one!</a>{{else}}<a href="/login">Login</a> to create a post.{{/if}}</p>
+  </div>
+{{/if}}

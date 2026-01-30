@@ -1,5 +1,6 @@
 
 import express from 'express';
+import authController from './controllers/authController.js';
 
 const routes = express.Router();
 
@@ -8,6 +9,8 @@ routes.get('/', (req, res) => {
     res.send('Welcome to the Home Page! Go to /posts to see all posts.');
     // res.redirect('/posts');
 });
+
+routes.use('/', authController);
 
 // 404 handler
 routes.use((req, res) => {

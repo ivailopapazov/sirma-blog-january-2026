@@ -1,0 +1,19 @@
+<div class="card">
+  <h1>Edit Comment</h1>
+  
+  {{#if error}}
+    <div class="error">{{error}}</div>
+  {{/if}}
+  
+  <form method="POST" action="/comments/{{comment.id}}">
+    <input type="hidden" name="postId" value="{{comment.postId}}">
+    
+    <div class="form-group">
+      <label for="content">Comment</label>
+      <textarea id="content" name="content" required>{{comment.content}}</textarea>
+    </div>
+    
+    <button type="submit" class="btn">Update Comment</button>
+    <a href="/posts/{{comment.postId}}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>

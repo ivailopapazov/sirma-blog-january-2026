@@ -1,7 +1,6 @@
 import express from 'express';
 import { engine } from 'express-handlebars';
 import cookieParser from 'cookie-parser';
-import path from 'path';
 
 import routes from './routes.js';
 
