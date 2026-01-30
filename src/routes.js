@@ -8,8 +8,8 @@ const routes = express.Router();
 
 // Home redirect
 routes.get('/', (req, res) => {
-    res.send('Welcome to the Home Page! Go to /posts to see all posts.');
-    // res.redirect('/posts');
+    // res.send('Welcome to the Home Page! Go to /posts to see all posts.');
+    res.redirect('/posts');
 });
 
 routes.use('/', authController);

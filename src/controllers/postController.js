@@ -1,5 +1,6 @@
 import express from 'express';
 import { requireAuth } from '../middlewares/authMiddleware.js';
+import postService from '../services/postService.js';
 
 const postController = express.Router();
 

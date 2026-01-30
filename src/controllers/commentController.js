@@ -1,6 +1,7 @@
 import express from 'express';
 
 import { requireAuth } from '../middlewares/authMiddleware.js';
+import commentService from '../services/commentService.js';
 
 const commentController = express.Router();
 
