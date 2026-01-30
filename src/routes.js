@@ -2,6 +2,7 @@
 import express from 'express';
 import authController from './controllers/authController.js';
 import postController from './controllers/postController.js';
+import commentController from './controllers/commentController.js';
 
 const routes = express.Router();
 
@@ -13,6 +14,7 @@ routes.get('/', (req, res) => {
 
 routes.use('/', authController);
 routes.use('/posts', postController);
+routes.use('/comments', commentController);
 
 // 404 handler
 routes.use((req, res) => {
