@@ -1,8 +1,10 @@
+import { log } from "node:console";
+import authService from "../services/authService.js";
 
 // Simple cookie-based auth middleware
 export const authMiddleware = async (req, res, next) => {
     const userId = req.cookies.userId;
-
+    log('Auth Middleware - userId from cookies:', userId);
     if (!userId) {
         req.user = null;
         res.locals.user = null;

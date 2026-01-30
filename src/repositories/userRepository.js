@@ -2,11 +2,25 @@ import { prisma } from '../config/prismaClient.js';
 
 export default {
     findByEmail(email) {
-        return prisma.
+        return prisma.user.findUnique({
+            where: { email }
+        });
     },
-    findByUsername(username) {},
-    create(userData) {},
-    findById(id) {},
+    findByUsername(username) {
+        return prisma.user.findUnique({
+            where: { username }
+        });
+    },
+    create(userData) {
+        return prisma.user.create({
+            data: userData
+        });
+    },
+    findById(id) {
+        return prisma.user.findUnique({
+            where: { id }
+        });
+    },
     update(id, updateData) {},
     delete(id) {}   
 };

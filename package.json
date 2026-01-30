@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "node --watch src/index.js"
+    "dev": "tsx --watch src/index.js"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,8 @@
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "express-handlebars": "^8.0.3",
-    "pg": "^8.17.2"
+    "pg": "^8.17.2",
+    "tsx": "^4.21.0"
   },
   "devDependencies": {
     "@types/node": "^25.1.0",

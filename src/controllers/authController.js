@@ -53,21 +53,21 @@ authController.post('/register', async (req, res) => {
         });
     }
 
-    // try {
-    //     const user = await authService.register(username, email, password);
-    //     res.cookie('userId', user.id, {
-    //         httpOnly: true,
-    //         maxAge: 7 * 24 * 60 * 60 * 1000
-    //     });
-    //     res.redirect('/posts');
-    // } catch (error) {
-    //     res.render('auth/register', {
-    //         title: 'Register',
-    //         error: error.message,
-    //         username,
-    //         email
-    //     });
-    // }
+    try {
+        const user = await authService.register(username, email, password);
+        res.cookie('userId', user.id, {
+            httpOnly: true,
+            maxAge: 7 * 24 * 60 * 60 * 1000
+        });
+        res.redirect('/posts');
+    } catch (error) {
+        res.render('auth/register', {
+            title: 'Register',
+            error: error.message,
+            username,
+            email
+        });
+    }
 });
 
 // GET /logout
