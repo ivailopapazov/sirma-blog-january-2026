@@ -21,6 +21,9 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  posts     Post[]
+  comments  Comment[]
+
   @@map("users")
 }
 
@@ -32,7 +35,10 @@ model Post {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@map("posts")
+  author    User     @relation(fields: [authorId], references: [id])
+  comments  Comment[]
+
+  @@map("posts")  
 }
 
 model Comment {
@@ -42,6 +48,9 @@ model Comment {
   authorId  Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  post      Post     @relation(fields: [postId], references: [id])
+  author    User     @relation(fields: [authorId], references: [id])
 
   @@map("comments")
 }
